@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby -w
+
+require 'ostruct'
+require 'optparse'
+
+require File.expand_path(File.join(File.dirname(__FILE__), %w[.. lib ghissues]))
+
+options = OpenStruct.new
+
+def help
+  puts "Usage: 
+
+   ghissues open 
+      Lists open issues
+
+  ghissues create title, body
+     Creates a new issue "
+end
+
+
+
+(help; exit) if ARGV.empty?
+
+#begin
+  Neurogami::GHIssues.send *ARGV
+#rescue Exception
+#  warn "Yikes!  Error invoking #{arg}:\n#{$!.inspect}"
+#end
+
+
