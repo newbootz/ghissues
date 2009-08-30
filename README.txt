@@ -17,19 +17,32 @@ Quite new.  Does some useful stuff.
   ghissues open
       Lists open issues
 
+  ghissues open reload
+      Lists open issues after refreshing the local issues cache file.
   
-  ghissues create <title> <body>
-      Creates new issue
+  ghissues create 
+      Creates new issue.  You get promted for valeus
      
+
+You need a .ghissues file in the directory from which you invoke the app.  It needs 
+to be a YAML file, like this:
+
+    owner:  your_github_account_name
+    repo: the_repo_you_are_dealing_withm
+    issues_cache_file: some_file_name_for_caching_issues.yaml
+
+Also, you need to define an ENV value for GH_AUTH_TOKEN.
+
+See http://github.com/blog/170-token-authentication
        
 == REQUIREMENTS:
 
-Ruby.  I think that's all.
+Ruby.  I think that's all. And a github account and repo to use this with.
 
 
 == INSTALL:
 
-The usual gem install stuff
+The usual gem install stuff, with the required github additions.
 
 == LICENSE:
 

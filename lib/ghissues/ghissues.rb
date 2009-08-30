@@ -8,23 +8,7 @@ module Neurogami
   class GHIssues
     class << self
 
-      def read_config
-        begin
-          @@config_file =  "#{Dir.pwd}/.ghissues"
-          unless File.exist? @@config_file
-            warn "You need to have config properties in #{@@config_file}"
-            exit 
-          end
-          @@config = YAML.load IO.read(@@config_file)
-        end
-      end
-
-      def config
-        @@config ||= read_config
-      end
-
       def open *args
-        warn "Have args #{args.inspect}"
         nocache = args && args.first =~ /reload|refresh/i
         paged_issues  nocache
       end
@@ -39,9 +23,23 @@ module Neurogami
         create_issue title, body
       end
 
-
-
       private
+
+      def read_config
+        begin
+          @@config_file =  "#{Dir.pwd}/.ghissues"
+          unless File.exist? @@config_file
+            warn "You need to have config properties in #{@@config_file}"
+            exit 
+          end
+          @@config = YAML.load IO.read(@@config_file)
+        end
+      end
+
+      def config
+        @@config ||= read_config
+      end
+      
       def create_issue title, body
         token = ENV['GH_AUTH_TOKEN']
         url = "http://github.com/api/v2/yaml/issues/open/#{config['owner']}/#{config['repo']}"
@@ -49,7 +47,7 @@ module Neurogami
         if res.body.to_s.strip.empty?
           raise "There was problem creating the new issue: #{res.error!}"
         else
-          warn res.body
+          warn "Posted issue\n" + res.body
         end
       end
 
@@ -75,15 +73,14 @@ module Neurogami
         issues_cache =  config['issues_cache_file'] || 'issues.yaml'
         if no_cache || !File.exist?(issues_cache)
           warn "Reloading issues from GitHub ..."
-          File.open( issues_cache, 'w'){ |f| f.puts get_issues }
+          File.open(issues_cache, 'w'){ |f| f.puts get_issues }
         end
         YAML.load(IO.read(issues_cache))['issues']
       end
 
       def get_issues
-
         url = "http://github.com/api/v2/yaml/issues/list/#{config['owner']}/#{config['repo']}/open"
-        issues =  Kernel.open( url ).read
+        issues =  Kernel.open(url).read
         raise "Failed to get issues" if issues.to_s.strip.empty?
         issues
       end
