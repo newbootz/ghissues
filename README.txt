@@ -21,7 +21,7 @@ Quite new.  Does some useful stuff.
       Lists open issues after refreshing the local issues cache file.
   
   ghissues create 
-      Creates new issue.  You get promted for valeus
+      Creates new issue.  You get prompted for values
      
 
 You need a .ghissues file in the directory from which you invoke the app.  It needs 
