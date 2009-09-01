@@ -1,7 +1,9 @@
 # Neurogami::GHIssues
 
 by James Britt / Neurogami
+
 james@neurogami.com
+
 http://www.neurogami.com
 
 ## DESCRIPTION:
