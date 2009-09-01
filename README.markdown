@@ -1,18 +1,21 @@
-ghissues
-    by James Britt / Neurogami
-    james@neurogami.com
-    http://www.neurogami.com
+# Neurogami::GHIssues
 
-== DESCRIPTION:
+by James Britt / Neurogami
+james@neurogami.com
+http://www.neurogami.com
+
+## DESCRIPTION:
 
 CLI app to interact with GitHub 'issues' API
 
-== FEATURES/PROBLEMS:
+## FEATURES/PROBLEMS:
 
 Quite new.  Does some useful stuff.  
 
+Allows for fetching open tickets and adding new tickets from the command line.
 
-== SYNOPSIS:
+
+## SYNOPSIS:
 
   ghissues open
       Lists open issues
@@ -31,20 +34,25 @@ to be a YAML file, like this:
     repo: the_repo_you_are_dealing_withm
     issues_cache_file: some_file_name_for_caching_issues.yaml
 
-Also, you need to define an ENV value for GH_AUTH_TOKEN.
+Also, you need to define an ENV value for GH_AUTH_TOKEN
 
 See http://github.com/blog/170-token-authentication
        
-== REQUIREMENTS:
+## REQUIREMENTS:
 
-Ruby.  I think that's all. And a github account and repo to use this with.
+Ruby.  I think that's all. And a github account and repo to use this with.  Oh, and issues. 
 
 
-== INSTALL:
+## INSTALL:
 
 The usual gem install stuff, with the required github additions.
 
-== LICENSE:
+After adding github.com as a gem source, 
+
+    sudo gem i neurogami-ghissues
+
+
+## LICENSE:
 
 (The MIT License)
 
