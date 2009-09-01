@@ -27,4 +27,5 @@ PROJ.rubyforge.name = 'ghissues'  # There is no RF project
 
 PROJ.spec.opts << '--color'
 
+
 # EOF
