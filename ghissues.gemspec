@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 
-require 'lib/ghissues'
+require 'lib/version'
 
 Gem::Specification.new do |s|
   s.name = %q{ghissues}
@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.email = %q{james@neurogami.com}
   s.executables = ["ghissues"]
   s.extra_rdoc_files = ["History.txt", "README.markdown", "bin/ghissues"]
-  s.files = [ "History.txt", "README.markdown", "Rakefile", "bin/ghissues", "lib/ghissues.rb", 
+  s.files = [ "History.txt", "README.markdown", "Rakefile", "bin/ghissues", "lib/ghissues.rb",  "lib/version.rb", 
               "lib/ghissues/ghissues.rb", "spec/ghissues_spec.rb", "spec/spec_helper.rb", "test/test_ghissues.rb"]
   s.homepage = %q{http://github.com/Neurogami/ghissues/tree/master}
   s.rdoc_options = ["--main", "README.txt"]
