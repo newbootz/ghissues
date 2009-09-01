@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{ghissues}
   s.rubygems_version = %q{1.3.4}
-  s.summary = %q{CLI app to interact with GitHub 'issues' API}
+  s.summary = %q{Neurogami::GHIssues lets you do some basic interaction with the GitHub 'issues' Web API.}
   s.test_files = ["test/test_ghissues.rb"]
 
   if s.respond_to? :specification_version then
