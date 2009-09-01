@@ -19,14 +19,14 @@ Allows for fetching open tickets and adding new tickets from the command line.
 
 ## SYNOPSIS:
 
-  ghissues open
-      Lists open issues
+    ghissues open
+        Lists open issues
 
-  ghissues open reload
-      Lists open issues after refreshing the local issues cache file.
-  
-  ghissues create 
-      Creates new issue.  You get prompted for values
+    ghissues open reload
+        Lists open issues after refreshing the local issues cache file.
+    
+    ghissues create 
+        Creates new issue.  You get prompted for values
      
 
 You need a .ghissues file in the directory from which you invoke the app.  It needs 
