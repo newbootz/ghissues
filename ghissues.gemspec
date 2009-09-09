@@ -3,7 +3,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ghissues}
-  s.version = '0.1.2' # SADNESS. DUPLICATE VALUE
+  s.version = '0.1.3' # SADNESS. DUPLICATE VALUE
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["James Britt"]
