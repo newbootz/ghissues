@@ -13,8 +13,8 @@ def help
    ghissues open 
       Lists open issues
 
-  ghissues create title, body
-     Creates a new issue "
+  ghissues create 
+     Creates a new issue. You get prompted for the title and details "
 end
 
 
