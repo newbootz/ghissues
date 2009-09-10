@@ -23,6 +23,9 @@ PROJ.authors = 'James Britt'
 PROJ.email = 'james@neurogami.com'
 PROJ.url = 'http://neurogami.com/code'
 PROJ.version = Ghissues::VERSION
+PROJ.readme_file = 'README.markdown'
+PROJ.summary = 'CLI tool for GitHub "Issues" API'
+
 PROJ.rubyforge.name = 'ghissues'  # There is no RF project
 
 PROJ.spec.opts << '--color'

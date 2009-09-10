@@ -3,10 +3,21 @@ require 'yaml'
 require 'net/http'
 require 'uri'
 require 'yaml'
+require 'fileutils'
 
 module Neurogami
   class GHIssues
     class << self
+
+      # Maybe some prompts?
+      def configure *args
+ STDERR.puts( ":DEBUG #{__FILE__}:#{__LINE__}" ) if ENV['JAMES_SCA_JDEV_MACHINE'] # JGBDEBUG
+        File.open('.ghissues', 'w') { |f|
+        f.puts "owner:  RepoOwnerName
+repo: repo-name
+issues_cache_file: .ghcache/issues.yaml"
+         }
+      end
 
       def open *args
         nocache = args && args.first =~ /reload|refresh/i
@@ -26,6 +37,7 @@ module Neurogami
       private
 
       def read_config
+        STDERR.puts( ":DEBUG #{__FILE__}:#{__LINE__}" ) if ENV['JAMES_SCA_JDEV_MACHINE'] # JGBDEBUG 
         begin
           @@config_file =  "#{Dir.pwd}/.ghissues"
           unless File.exist? @@config_file
@@ -58,7 +70,9 @@ module Neurogami
       def paged_issues no_cache = false
         ARGV.clear 
         warn "Hit enter after each issue to see the next one"
-        issues(no_cache).each do |issue|
+        
+        # Yeah, this is some flow-control spooky code.  But it works! Do not try this at home. :)
+        ( issues(no_cache) || (warn("No issues."); return ) ).each do |issue|
           ___    
           warn "Title: #{issue['title']}"
           warn "Details: \n#{issue['body']}"
@@ -73,6 +87,8 @@ module Neurogami
         issues_cache =  config['issues_cache_file'] || 'issues.yaml'
         if no_cache || !File.exist?(issues_cache)
           warn "Reloading issues from GitHub ..."
+          config_dir = File.dirname( File.expand_path(issues_cache) )
+          FileUtils.mkdir_p config_dir unless File.exist?(config_dir)
           File.open(issues_cache, 'w'){ |f| f.puts get_issues }
         end
         YAML.load(IO.read(issues_cache))['issues']

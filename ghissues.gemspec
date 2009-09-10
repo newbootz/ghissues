@@ -3,7 +3,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ghissues}
-  s.version = '0.1.3' # SADNESS. DUPLICATE VALUE
+  s.version = '0.1.4' # SADNESS. DUPLICATE VALUE
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["James Britt"]
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files = [ "History.txt", "README.markdown", "Rakefile", "bin/ghissues", "lib/ghissues.rb",  "lib/version.rb", 
               "lib/ghissues/ghissues.rb", "spec/ghissues_spec.rb", "spec/spec_helper.rb", "test/test_ghissues.rb"]
   s.homepage = %q{http://github.com/Neurogami/ghissues/tree/master}
-  s.rdoc_options = ["--main", "README.txt"]
+  s.rdoc_options = ["--main", "README.markdown"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{ghissues}
   s.rubygems_version = %q{1.3.4}

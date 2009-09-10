@@ -14,17 +14,15 @@ def help
       Lists open issues
 
   ghissues create 
-     Creates a new issue. You get prompted for the title and details "
+     Creates a new issue. You get prompted for the title and details 
+
+  ghissues configure
+      Writes out a template .ghissues file   
+"
 end
-
-
 
 (help; exit) if ARGV.empty?
 
-#begin
-  Neurogami::GHIssues.send *ARGV
-#rescue Exception
-#  warn "Yikes!  Error invoking #{arg}:\n#{$!.inspect}"
-#end
+Neurogami::GHIssues.send *ARGV
 
 
